@@ -10,14 +10,14 @@ class CategoryContainer extends Component {
     const data = api.getCategoryById(this.props.match.params.id);
     this.setState({
       category: data,
-    })
+    });
   }
   render() {
-    console.log(this.props);
+    console.log(this.state);
     return (
       <Category
+        categoryName={this.props.match.params.id}
         category={this.state.category}
-        categoryId={this.props.match.params.id}
       />
     );
   }
