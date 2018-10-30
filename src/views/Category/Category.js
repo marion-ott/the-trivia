@@ -1,13 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const Category = ({ clues, categoryName }) => (
+const Category = ({ category, categoryId }) => (
   <section>
-    <h1>Category page: { categoryName }</h1>
-    { clues.length > 0 && (
-      clues.map(clue => (
-        <div key={clue.id}>
-          <p >{clue.question}</p>
+    <h1>Category page: { categoryId }</h1>
+    { category.length > 0 && (
+      category.map(cat => (
+        <div key={cat.id}>
+          <p >{cat.question}</p>
           <input></input>
         </div>
       ))
@@ -16,7 +16,7 @@ const Category = ({ clues, categoryName }) => (
 );
 
 Category.propTypes = {
-  categoryName: PropTypes.string.isRequired,
+  categoryId: PropTypes.number.isRequired,
 };
 
 export default Category;
