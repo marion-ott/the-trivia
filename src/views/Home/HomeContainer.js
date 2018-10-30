@@ -11,7 +11,6 @@ class HomeContainer extends Component {
         this.setState({
           categories: categories,
         })
-        console.log(categories);
       });
     })
   }
