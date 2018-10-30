@@ -1,18 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import QuestionContainer from '../Question/QuestionContainer';
 
 const Category = ({ categoryName, category }) => {
-  const alreadyAsked = [];
+  const quizData = category.clues;
   
   return (
     <section>
       <h1>Category page: {categoryName}</h1>
-      {category.clues.map(clue => (
-        <div>
-          <p>{clue.question}</p>
-          <input placeholder="Type your answer"></input>
-        </div>
-      ))}
+      <QuestionContainer items={quizData}/>
     </section>
   );
 }
