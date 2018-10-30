@@ -1,22 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const Category = ({ category, categoryId }) => (
+const Category = ({ categoryName }) => (
   <section>
-    <h1>Category page: { categoryId }</h1>
-    { category.length > 0 && (
-      category.map(cat => (
-        <div key={cat.id}>
-          <p >{cat.question}</p>
-          <input></input>
-        </div>
-      ))
-    )}
+    <h1>Category page: {categoryName}</h1>
   </section>
 );
 
 Category.propTypes = {
-  categoryId: PropTypes.number.isRequired,
+  categoryName: PropTypes.string.isRequired,
 };
 
 export default Category;
