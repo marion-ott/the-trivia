@@ -7,7 +7,7 @@ const Home = ({ categories }) => (
     <h1>Homepage</h1>
     {categories.length > 0 && (
       <section>
-        {categories.map(category => (
+        {categories.map((category) => (
           <Link to={`/categories/${category.id}`} key={category.id}>
             {category.title}
           </Link>

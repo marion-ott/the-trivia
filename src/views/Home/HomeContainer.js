@@ -12,9 +12,14 @@ class HomeContainer extends Component {
       categories: data,
     });
   }
+
+  removeCategory = (index) => {
+    this.state.categories.filter(category => category.id !== index)
+  }
+
   render() {
     return (
-      <Home categories={this.state.categories} />
+      <Home categories={this.state.categories} removeCategory={this.removeCategory} />
     );
   }
 }

@@ -6,6 +6,9 @@ class CategoryContainer extends Component {
   state = {
     category: null,
     currentQuestion: 0,
+    questionsAsked: [],
+    score: 0,
+    errors: 0
   }
 
   // createRef in order to bring back input value to its parent
@@ -18,36 +21,84 @@ class CategoryContainer extends Component {
     this.setState({
       category: data,
     });
+    console.log(data)
   }
 
   handleSubmit = (e) => {
     // here I prevent the default bh of submitting form
     e.preventDefault();
+    // remove punctuation from the answer
+    const questionAnswered = this.state.category.clues[this.state.currentQuestion].answer.match(/[^_\W]+/g).join(' ')    
     // write logic to handle good/bad answer
     // increment currentQuestion
     // save in the storage the id of the question
     // if no more question, remove category from categories playable
     // increment score somewhere and redirect to /
-
-    const answer = this.answerInput.current.value;
+    let answer = this.answerInput.current.value
+    const isCorrect = (answer.toLowerCase()) === (questionAnswered.toLowerCase()) ? true : false
+    isCorrect ? this.updateScore() : this.updateErrors()
+    const questionsAsked = this.state.questionsAsked
+    this.updateNextId()
+    questionsAsked.push(this.state.category.clues[this.state.currentQuestion].id)
+    this.setState({
+        questionsAsked
+    })
     // check if answer is equal to the requested answer from the current question
   }
 
+  updateNextId = () => {
+    const nextId = this.state.currentQuestion + 1
+    this.setState({
+      currentQuestion: nextId,
+    })
+  }
+
+
+  // Method to update error count
+  updateErrors = () => {
+    const errors = this.state.errors + 1
+    this.setState({
+      errors
+    })
+  }
+
+  
+  // Method to update current score
+  updateScore = () => {
+    const score = this.state.score + 2
+    this.setState({
+      score
+    })
+  }
+
+
+  // Method to check if the current question has been asked before
+  // If so, another question will be displayed
+  checkQuestionsAsked = () => {
+    const { category, currentQuestion, score } = this.state;
+    if(this.state.questionsAsked.includes(this.state.category.clues[this.state.currentQuestion].id)) {
+      this.updateNextId() 
+    } else {
+      return(<Category 
+        category={category} 
+        currentQuestionIndex={currentQuestion} 
+        handleSubmit={this.handleSubmit}
+        answerInput={this.answerInput}
+        score={score}
+      />)
+    }
+  }
   render() {
-    const { category, currentQuestion } = this.state;
+    //const { category, currentQuestion, score } = this.state;
     // at first render, category will be null so we need to wait
     // before using data.
-    if (!category) return <div>is loading</div>
+    if (!this.state.category) return <div>is loading</div>
 
     return (
-      <Category
-        category={category}
-        currentQuestionIndex={currentQuestion}
-        handleSubmit={this.handleSubmit}
-        // plug createRef to chidlren
-        answerInput={this.answerInput}
-      />
-    );
+      <div>
+        { this.checkQuestionsAsked() }
+      </div>
+    )
   }
 }
 
