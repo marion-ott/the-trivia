@@ -88,6 +88,7 @@ class CategoryContainer extends Component {
       />)
     }
   }
+  
   render() {
     //const { category, currentQuestion, score } = this.state;
     // at first render, category will be null so we need to wait
