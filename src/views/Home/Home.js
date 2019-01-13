@@ -1,16 +1,23 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import css from './home.scss'
 
-const Home = ({ categories }) => (
-  <section>
-    <h1>Homepage</h1>
+
+const Home = ({ categories, images }) => (
+  <section className={css.component}>
+    <h1>Categories</h1>
     {categories.length > 0 && (
       <section>
-        {categories.map((category) => (
-          <Link to={`/categories/${category.id}`} key={category.id}>
-            {category.title}
-          </Link>
+        {categories.map((category, key) => (
+          <div className="category" key={key}>
+            <div className="category__background"></div>
+            <div className="category__name">
+              <Link to={`/categories/${category.id}`} key={category.id}>
+                {category.title}
+              </Link>
+            </div>
+          </div>
         ))}
       </section>
     )}

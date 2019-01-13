@@ -1,0 +1,96 @@
+:local(.component) {
+    width: 100%;
+    height: 100vh;
+    .container {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        justify-content: center;
+        .back {
+            position: fixed;
+            left: 25px;
+            top: 25px;
+            color: black;
+        }
+        h2 {
+            font-weight: normal;
+            span {
+                font-weight: bold;
+            }
+        }
+        form {
+            .question {
+                margin: 0 auto;
+                width: 800px;
+                height: 150px;
+                background: #F8F8F8;
+                box-shadow: 0px 1px 7px rgba(0, 0, 0, 0.1);
+                position: relative;
+                display: table;
+                .position {
+                    position: absolute;
+                    top: -15px;
+                    display: flex;
+                    justify-content: space-between;
+                    width: 100%;
+                    div {
+                        width: 158px;
+                        height: 15px;
+                        background-color: #9497FF;
+                        &:not(:last-child) {
+                            margin-right: 2px;
+                        }
+                    }
+                }
+                &__title {
+                    font-family: Roboto;
+                    font-style: normal;
+                    font-weight: normal;
+                    line-height: normal;
+                    font-size: 20px;
+                    color: #1D1D1D;
+                    text-align: center;
+                    display: table-cell;
+                    vertical-align: middle;
+                }
+                &__answerInput {
+                    input {
+                        width: 550px;
+                        height: 50px;
+                        background: #F8F8F8;
+                        box-shadow: 0px 1px 7px rgba(0, 0, 0, 0.1);
+                        border: none;
+                        font-size: 16px;
+                        color: black;
+                        padding: 0 15px;
+                        &:focus {
+                            outline: none;
+                        }
+                        &:placeholder {
+                            color: #C4C4C4;
+                        }
+                    } 
+                }
+                &__submit {
+                    margin-left: 20px;
+                    width: 95px;
+                    height: 50px;
+                    background: #9497FF;
+                    box-shadow: 0px 1px 7px rgba(0, 0, 0, 0.1);
+                    border: none;
+                    color: white;
+                    text-transform: uppercase;
+                    font-size: 16px;
+                    cursor: pointer;
+                }
+            }
+            .answer {
+                display: flex;
+                margin-top: 20px;
+                width: 100%;
+                align-items: center;
+                justify-content: center;
+            }
+        }
+    }
+}

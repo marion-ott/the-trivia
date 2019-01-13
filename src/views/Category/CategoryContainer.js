@@ -3,13 +3,27 @@ import api from '../../helpers/api';
 import Category from './Category';
 
 class CategoryContainer extends Component {
-  state = {
-    category: null,
-    currentQuestion: 0,
-    questionsAsked: [],
-    score: 0,
-    errors: 0
+  constructor(props) {
+    super(props)
+
+
+    if (!localStorage.getItem('quizData')) {
+      localStorage.setItem('quizData', JSON.stringify({errors: 0, score: 0, tries: 0}));
+    }
+
+    const score = JSON.parse(localStorage.getItem('quizData')).score;
+    const errors = JSON.parse(localStorage.getItem('quizData')).errors;
+    const tries = JSON.parse(localStorage.getItem('quizData')).tries;
+
+    this.state = {
+      category: null,
+      currentQuestion: 0,
+      questionsAsked: [],
+      score: score,
+      errors: errors
+    }
   }
+
 
   // createRef in order to bring back input value to its parent
   answerInput = createRef();

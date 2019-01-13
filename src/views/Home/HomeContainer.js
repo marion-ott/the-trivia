@@ -8,8 +8,10 @@ class HomeContainer extends Component {
   }
   async componentDidMount() {
     const data = await api.getCategories();
+    const images = await api.getRandomImages();
     this.setState({
       categories: data,
+      images
     });
   }
 
@@ -19,7 +21,7 @@ class HomeContainer extends Component {
 
   render() {
     return (
-      <Home categories={this.state.categories} removeCategory={this.removeCategory} />
+      <Home categories={this.state.categories} images={this.state.images} removeCategory={this.removeCategory} />
     );
   }
 }

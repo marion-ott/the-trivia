@@ -1,0 +1,44 @@
+:local(.component) {
+    width: 90%;
+    margin: 0 auto;
+    section {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
+    .category {
+        max-width: 200px;
+        width: 15%;
+        height: 100px;
+        background-color: black;
+        position: relative;
+        margin-bottom: 20px;
+        &__background {
+            background-image: url('../../assets/laserCat.jpg');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.2;
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        &__name {
+            padding: 0 20px;
+            box-sizing: border-box;
+            width: 100%;
+            height: 100%;
+            display: table;
+            a {
+                color: white;
+                font-size: 16px;
+                text-transform: uppercase;
+                position: relative;
+                z-index: 10;
+                display: table-cell;
+                vertical-align: middle;
+            }
+        }
+    }
+  }

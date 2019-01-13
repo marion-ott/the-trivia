@@ -4,6 +4,11 @@ class api {
     const json = await response.json();
     return json;  
   }
+  async getRandomImages() {
+    const response = await fetch('https://cors-anywhere.herokuapp.com/https://picsum.photos/list');
+    const json = await response.json();
+    return json;
+  }  
   async getCategoryById(id) {
     const response = await fetch(`http://jservice.io/api/category?id=${id}`);
     const json = await response.json();
@@ -12,3 +17,5 @@ class api {
 }
 
 export default new api();
+
+
