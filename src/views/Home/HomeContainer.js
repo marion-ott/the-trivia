@@ -8,10 +8,8 @@ class HomeContainer extends Component {
   }
   async componentDidMount() {
     const data = await api.getCategories();
-    const images = await api.getRandomImages();
     this.setState({
       categories: data,
-      images
     });
   }
 

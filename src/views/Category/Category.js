@@ -4,15 +4,24 @@ import { Link } from 'react-router-dom';
 import Score from '../Score/Score'
 import css from './category.scss'
 
-const Category = ({ category, currentQuestionIndex, handleSubmit, answerInput, score }) => {
+const Category = ({ category, currentQuestionIndex, handleSubmit, answerInput, score, errors, tries }) => {
   const currentQuestion = category.clues[currentQuestionIndex];
+  const errorCount = () => {
+    for(let i = 0; i < errorCount; i++) {
+      return(
+        <div className="error">X</div>
+      )
+    }
+  }
   return (
     <section className={css.component}>
       <div className="container">
         <Link to={'/'} className="back">Back to categories</Link>
         <h2>Catégorie : <span>{category.title}</span></h2>
-          <Score score={score}/>
+          <Score score={score} tries={tries} errors={errors} />
           <form onSubmit={handleSubmit}>
+            <div className="errorCount">
+            </div>
             <div className="question">
               <div className="position">
                 <div></div>

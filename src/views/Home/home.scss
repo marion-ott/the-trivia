@@ -5,40 +5,56 @@
         display: flex;
         justify-content: space-between;
         flex-wrap: wrap;
+        position: relative;
+    }
+    h1 {
+        text-align: left;
+    }
+    .svgCat {
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: -1;
+    }
+    a {
+        min-width: 250px;
+        font-size: 16px;
+        position: relative;
+        z-index: 10;
+        display: inline-block;
+        text-align: center;
+        margin: 0 auto;
+        vertical-align: middle;
+        text-decoration: none;
+        text-transform: capitalize;
+        font-weight: bold;
+        width: 24%;
+        height: 200px;
+        margin-bottom: 20px;
     }
     .category {
-        max-width: 200px;
-        width: 15%;
-        height: 100px;
-        background-color: black;
+        //max-width: 200px;
+        width: 100%;
+        height: 100%;
         position: relative;
-        margin-bottom: 20px;
-        &__background {
-            background-image: url('../../assets/laserCat.jpg');
-            background-size: cover;
-            background-position: center;
-            opacity: 0.2;
-            width: 100%;
-            height: 100%;
-            position: absolute;
-            top: 0;
-            left: 0;
+        box-shadow: 0px 1px 7px rgba(0, 0, 0, 0.1);
+        background-image: url('../../assets/imageBackground.jpg');
+        background-size: cover;
+        background-position: center;
+        transition: ease .4s all;
+        &:hover {
+            box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.3);
         }
         &__name {
-            padding: 0 20px;
-            box-sizing: border-box;
             width: 100%;
-            height: 100%;
-            display: table;
-            a {
-                color: white;
-                font-size: 16px;
-                text-transform: uppercase;
-                position: relative;
-                z-index: 10;
-                display: table-cell;
-                vertical-align: middle;
-            }
+            height: 20%;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            position: absolute;
+            bottom: 0;
+            background-color: white;
+            justify-content: center;
         }
     }
-  }
+}

@@ -6,6 +6,7 @@
         flex-direction: column;
         height: 100%;
         justify-content: center;
+        padding: 0 20px;
         .back {
             position: fixed;
             left: 25px;
@@ -21,15 +22,19 @@
         form {
             .question {
                 margin: 0 auto;
-                width: 800px;
+                max-width: 800px;
+                width: 100%;
                 height: 150px;
                 background: #F8F8F8;
                 box-shadow: 0px 1px 7px rgba(0, 0, 0, 0.1);
                 position: relative;
                 display: table;
+                padding: 0 25px;
+                box-sizing: border-box;
                 .position {
                     position: absolute;
                     top: -15px;
+                    left: 0;
                     display: flex;
                     justify-content: space-between;
                     width: 100%;
@@ -54,8 +59,11 @@
                     vertical-align: middle;
                 }
                 &__answerInput {
+                    max-width: 500px;
+                    width: 100%;
                     input {
-                        width: 550px;
+                        max-width: 550px;
+                        width: 100%;
                         height: 50px;
                         background: #F8F8F8;
                         box-shadow: 0px 1px 7px rgba(0, 0, 0, 0.1);
@@ -73,7 +81,8 @@
                 }
                 &__submit {
                     margin-left: 20px;
-                    width: 95px;
+                    max-width: 95px;
+                    width: 100%;
                     height: 50px;
                     background: #9497FF;
                     box-shadow: 0px 1px 7px rgba(0, 0, 0, 0.1);
@@ -94,3 +103,29 @@
         }
     }
 }
+
+.categoryContainer {
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    .noMoreQuestions {
+        a {
+            color: white;
+            font-size: 22px;
+            text-decoration: none;
+            transition: ease .26s all;
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+        p {
+            color: white;
+            font-size: 20px;
+            span {
+                font-weight: bold;
+            }
+        }
+    }
+} 
