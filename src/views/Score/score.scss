@@ -1,0 +1,13 @@
+:local(.component) {
+    position: fixed;
+    top: 25px;
+    right: 45px;
+    p {
+        text-align: right;
+        font-size: 20px;
+        font-weight: normal;
+        span {
+            font-weight: bold;
+        }
+    }
+}
