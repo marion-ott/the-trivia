@@ -2,6 +2,7 @@
 
 ### To install the project :
 ```shell
+$ cd yourDirectoryPath
 $ npm install
 $ npm start
 ```
